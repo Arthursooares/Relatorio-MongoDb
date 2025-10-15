@@ -165,42 +165,36 @@ Michael Hartstein – $7.922,32
 ⚙️ Nível 6 – Atualizações
 6.1 Criar o departamento “Inovações”
 js
-Copiar código
 db.departamentos.insertOne({
   nome: "Inovações",
   escritorio: ObjectId("5f8b3f3f9b3e0b3b3c1e3e3e")
 })
 6.2 Transferir 2 funcionários para Inovações
 js
-Copiar código
 db.funcionarios.updateMany(
   { nome: { $in: ["Alexander Hunold", "Bruce Ernst"] } },
   { $set: { departamento: "Inovações" } }
 )
 6.3 Aumento de 10% para Tecnologia
 js
-Copiar código
 db.funcionarios.updateMany(
   { departamento: "Tecnologia" },
   { $mul: { salario: 1.1 } }
 )
 6.4 Promover Bruce Ernst
 js
-Copiar código
 db.funcionarios.updateOne(
   { nome: "Bruce Ernst" },
   { $set: { cargo: "Senior Web Developer", salario: 5000 } }
 )
 6.5 Adicionar suprimentos (Headsets) ao Wayne Offices
 js
-Copiar código
 db.escritorios.updateOne(
   { nome: "Wayne Offices" },
   { $push: { suprimentos: { produto: "Headsets", quantidade: 15, precoUnitario: 150 } } }
 )
 6.6 Remover funcionários contratados antes de 1990
 js
-Copiar código
 db.funcionarios.deleteMany({ dataAdmissao: { $lt: "1990-01-01" } })
 → Afetados: Irene Adler (1980) e Jennifer Whalen (1987)
 
@@ -223,6 +217,5 @@ Produto mais lucrativo: Sabre de Luz (Mace Windu)
 
 Escritório mais caro: Umbrella Corp
 
-yaml
-Copiar código
+
 
